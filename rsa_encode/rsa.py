@@ -31,9 +31,9 @@ def key_make(prime_list):       # 소수가 있는 list 가 매개변수
         d = (1 + (euler_n * 2))/e
     d = int(d)
 
-    print("n:", n)
-    print("e:", e)
-    print("d:", d)
+    print("공개 키&비밀 키n:", n)
+    print("공개 키e:", e)
+    print("비밀 키d:", d)
 
 
 # RSA 공개키 비밀키 생성 중간 과정 확인 가능
@@ -74,15 +74,15 @@ def key_make_print(prime_list):     # 소수가 있는 list 가 매개변수
     d = int(d)
     print("d:", d)
 
-    print("n:", n)
-    print("e:", e)
-    print("d:", d)
+    print("공개 키&비밀 키n:", n)
+    print("공개 키e:", e)
+    print("비밀 키d:", d)
 
 
 # RSA 암호화
 def rsa_encode(plain_text):
     n = int(input("공개키 n을 입력:"))
-    e = int(input("공개키 e를 입력:"))
+    e = int(input("비밀키 e를 입력:"))
     ascii_text = []
     i = 0
     while i < len(plain_text):
@@ -102,7 +102,7 @@ def rsa_encode(plain_text):
 # RSA 암호화 중간 과정 확인 가능
 def rsa_encode_print(plain_text):
     n = int(input("공개키 n을 입력:"))
-    e = int(input("공개키 e를 입력:"))
+    e = int(input("비밀키 e를 입력:"))
     ascii_text = []
     i = 0
     while i < len(plain_text):
@@ -134,10 +134,9 @@ def rsa_decode_print(encoded_text):
     decoded_text = []
     i = 0
     while i < len(encoded_text):
-        temp = encoded_text[i]
-        print("(temp ** d)=", temp ** d)
-        print("(temp ** d) % n=", (temp ** d) % n)
-        decoded_text.append((temp ** d) % n)
+        if encoded_text[i] != "":
+            temp = int(encoded_text[i])
+            decoded_text.append((temp ** d) % n)
         i += 1
     print("decoded_text:", decoded_text)
 
@@ -151,8 +150,9 @@ def rsa_decode(encoded_text):
     decoded_text = []
     i = 0
     while i < len(encoded_text):
-        temp = encoded_text[i]
-        decoded_text.append((temp ** d) % n)
+        if encoded_text[i] != "":
+            temp = int(encoded_text[i])
+            decoded_text.append((temp ** d) % n)
         i += 1
 
     return decoded_text
