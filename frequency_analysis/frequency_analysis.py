@@ -1,3 +1,6 @@
+from file_process import list_copy_to_file_enter
+
+
 # 문자 별 빈도수를 카운트
 def key_make(listed_file):      # 평문 file 이 list 로 바뀐 것
     ascii_list = []     # 입력된 문자열을 아스키 코드로 변환하여 복사할 list
@@ -72,6 +75,8 @@ def descending_order_sort(listed_file):     # 암호화 키를 list 형태로 �
                 listed_file_char[i] = temp1
             t += 1
         i += 1
+
+    list_copy_to_file_enter(listed_file_sort, "C:\\Users\\gunma\\Documents\\key(count)_sorted.txt")
 
     return listed_file_char
 
