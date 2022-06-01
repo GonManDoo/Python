@@ -1,7 +1,5 @@
-from list_process import array_copy_to_list_exclude_enter_capital
-
-a = input("something:")
-
-b = array_copy_to_list_exclude_enter_capital(a)
-
+a = "123"
+d = []
+d.append(a)
+b = len(d[0])
 print(b)

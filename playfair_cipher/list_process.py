@@ -162,3 +162,20 @@ def location_find(listed_key_table, char, h, w, faired_location):
         i += 1
 
     return listed_location
+
+
+def list_choose(listed_text):
+    i = 0
+    while i < len(listed_text):
+        print("listed_text[i]:", listed_text[i])
+        if len(listed_text[i]) == 4:        # listed_text[i]의 길이가 3이상이면(중복된 값이면)
+            print("진입")
+            temp = listed_text[i]       # listed_text[i]를 temp에 넣고
+            print("temp:", temp)
+            temp = list(temp)
+            print("temp_list:", temp)
+            temp = temp[0] + temp[1]
+            listed_text[i] = temp
+        i += 1
+
+    return listed_text

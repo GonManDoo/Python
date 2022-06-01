@@ -19,8 +19,8 @@ def file_copy_to_list_decode(location):
     listed_encoded_text = []
     f = open(location, 'r', encoding='UTF-8')
     while True:
-        line = f.readline()  # file 내용을 줄 마다 입력
-        line = line.rstrip("\n")
+        line = f.readline()  # file 내용을 줄 마다 읽어서 line 에 담음
+        line = line.rstrip("\n")    # 인자로 전달된 문자열의 오른쪽에서 개행문자를 제거
         listed_encoded_text.append(line)
         i += 1
         if not line:
